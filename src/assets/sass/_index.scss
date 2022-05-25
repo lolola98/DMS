@@ -1,0 +1,10 @@
+
+// vuetify의 변수
+@import "~vuetify/src/styles/main.sass";
+
+// 공통으로 적용되는 스타일  
+@import "common.scss";
+@import "component/all";
+@import "form/all";
+@import "layout/all";
+@import "login/all";

@@ -1,0 +1,51 @@
+body{font-family: $body-font-family;font-weight: 500;}
+
+::placeholder {color: $color-gray-2 !important; font-weight: 400;}
+
+.container{
+    padding: 0;
+    .inner{
+        padding-left: 23px;
+        padding-right: 23px;
+    }
+}
+.fs-14{font-size: 14px}
+.fs-16{font-size: 16px}
+.fs-18{font-size: 18px}
+.fs-20{font-size: 20px}
+.fs-24{font-size: 24px}
+.fw-500{font-weight: 500 !important;}
+.fw-600{font-weight: 600 !important;}
+.fw-700{font-weight: 700 !important;}
+.w-100 {width: 100% !important;}
+
+.pos-center{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.question{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    word-break: keep-all;
+}
+.subheader{
+    font-size: 14px;
+    color: #9FA3A8;
+    text-align: center;
+    font-weight: 300;
+}
+
+
+/* theme */
+.theme--light.v-application,.theme--light.v-sheet,
+.theme--light.v-input input, .theme--light.v-input textarea
+{color: #000}
+.theme--light.v-btn.v-btn--disabled.v-btn--has-bg {background-color: $color-gray-3 !important; color: #9FA9B4}
+.v-btn{letter-spacing: $btn-letter-spacing;}
+.v-btn--plain:not(.v-btn--active):not(.v-btn--loading):not(:focus):not(:hover) .v-btn__content {
+    opacity:1 !important; 
+}
