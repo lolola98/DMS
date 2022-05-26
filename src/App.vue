@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import AppBar from '@/components/AppBar.vue'
+import AppBar from '@/components/layout/AppBar.vue'
 export default {
   name: 'App',
   components: {

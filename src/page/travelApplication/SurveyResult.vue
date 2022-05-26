@@ -1,22 +1,23 @@
 <template>
-  <v-sheet class="mx-auto inner" max-width="700">
+  <div class="inner">
     <div class="fs-20 fw-600 mb-10">
       요즘 {{ name }}님의<br />
       마음날씨는 <span class="primary--text">{{ state }}</span> 이며,<br />
       마음 속에 <span class="primary--text">{{ tree }}</span
-      >가 자라나고 있습니다.
+      >가 자라나고<br>있습니다.
     </div>
-    <div class="tree-area mb-1">
+    <div class="box-bg tree-area mb-1">
       <Tree class="icon-tree" />
       <Weather class="icon-weather" />
     </div>
-    <v-btn text plain :ripple="false" class="d-flex align-center fs-14 px-0">
+    <v-btn text plain :ripple="false" class="d-flex align-center fs-14 px-0" @click="$emit('bottomSheetOpen',0)">
       <Question class="me-1" />가장 건강한 나무의 모습은?
     </v-btn>
-    <div class="read-more">자세히 보기</div>
+    <div class="read-more">자세히 보기<More class="more mt-4 mb-3"/></div>
+    <!-- 현재 나의 마음 날씨는? -->
     <div class="pb-10">
       <div class="fs-20 fw-600 mb-10">현재 나의 마음 날씨는?</div>
-      <div class="weather-area">
+      <div class="box-bg weather-area mb-8">
         <Weather class="icon-weather" />
         <div class="state">{{ state }}</div>
       </div>
@@ -31,6 +32,7 @@
           :key="n"
           v-ripple
           class="item text-center"
+          @click="$emit('bottomSheetOpen',1)"
         >
           <div class="d-flex justify-space-between align-center mb-3">
             <span class="emotion">{{ weatherEmotion[n - 1].emotion }}</span>
@@ -42,9 +44,13 @@
       </div>
     </div>
     <hr class="hr" />
+    <!-- 내 마음 속 나무 -->
     <div class="pt-12 pb-15">
       <div class="fs-20 fw-600 mb-10">내 마음 속 나무</div>
-      <v-img></v-img>
+      <div class="box-bg pt-5 pb-3 text-center mb-8">
+        <v-img :src="treeUrl" max-width="300px" max-height="105" contain class="mx-auto"></v-img>
+        <div class="mt-2">{{tree}}</div>
+      </div>
       <ul class="list dot">
         <li v-for="n in treeDescription.length" :key="n">
           {{ treeDescription[n - 1] }}
@@ -56,26 +62,19 @@
           :key="n"
           v-ripple
           class="item text-center"
+          @click="$emit('bottomSheetOpen',2)"
         >
           <div class="d-flex justify-space-between align-center mb-3">
             <span class="emotion">{{ treeEmotion[n - 1].emotion }}</span>
             <Arrow class="me-n3" />
           </div>
-          <span
-            style="
-              display: inline-block;
-              width: 50px;
-              height: 50px;
-              border-radius: 50px;
-              background: #e3e3e3;
-            "
-          ></span>
+          <span class="icon"></span>
           <div class="state mt-2">{{ treeEmotion[n - 1].state }}</div>
         </div>
       </div>
     </div>
     <BlackBtn :str="`추천 티켓 보러가기`" class="mb-10" @click="ticketGo" />
-  </v-sheet>
+  </div>
 </template>
 <script>
 import Arrow from "@/components/icons/Arrow";
@@ -92,6 +91,7 @@ export default {
     state: "보통",
     tree: "건강한 나무",
     weatherDescription: ["정의정의정의정의"],
+    treeUrl:'https://i.pinimg.com/564x/b9/aa/3b/b9aa3be45f18969bf924420ff6957212.jpg',
     weatherEmotion: [
       { emotion: "우울", state: "안정" },
       { emotion: "불안", state: "안정" },
@@ -117,6 +117,7 @@ export default {
     BlackBtn,
     Tree,
     Weather,
+    More,
   },
   methods: {
     click() {
@@ -133,17 +134,19 @@ export default {
       }
     },
     ticketGo() {
-      alert("asgdasdg");
+      alert("추천 티켓 보러가기");
     },
   },
 };
 </script>
 <style lang="scss" scoped>
+.box-bg{
+  background: #f8f8f8;
+  border-radius: 10px;
+}
 .tree-area,
 .weather-area {
   position: relative;
-  background: #f8f8f8;
-  border-radius: 10px;
   height: 280px;
   .icon-tree {
     position: absolute;
@@ -173,28 +176,39 @@ export default {
   }
 }
 .read-more{
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin: 40px 0 50px 0;
-}
-.list {
-  list-style: none;
-  padding-left: 10px;
-  li {
-    position: relative;
-    line-height: 24px;
-    margin-bottom: 25px;
-    &:before {
-      content: "";
-      position: absolute;
-      left: -10px;
-      top: 9px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #afafaf;
+  font-size: 14px;
+  .more{
+    animation: ani 1.5s infinite;
+  }
+  @-webkit-keyframes ani {
+    0% {
+      -webkit-transform:translate(0, 0);
+      opacity: 0;
     }
-    &:last-child {
-      margin-bottom: 0;
+    50% {
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform:translate(0, 20px);
+      opacity: 0;
+    }
+  }
+  @keyframes ani {
+    0% {
+      transform: translate(0, 0);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translate(0, 20px);
+      opacity: 0;
     }
   }
 }
@@ -217,6 +231,13 @@ export default {
     .state {
       font-size: 18px;
       font-weight: 700;
+    }
+    .icon{
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #e3e3e3;
     }
   }
 }

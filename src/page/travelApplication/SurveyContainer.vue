@@ -15,7 +15,12 @@
         <SurveyAnalysing v-else-if="step === 11"  @result="result"/>
         <FooterBtnsNext v-if="step !== 11" @before="before" @next="next" :current="current" :total="total" :disabledNext="disabledNext"/>
     </div>
-    <SurveyResult v-else/>
+    <v-sheet v-else class="mx-auto " max-width="700">
+        <SurveyResult @bottomSheetOpen="bottomSheetOpen"  />
+        <SurveyBottomSheet :sheet="sheet" :height="'75vh'" :flag="sheetFlag" @sheetClose="sheetClose"/>
+    </v-sheet>
+
+    
 </template>
 
 <script>
@@ -35,6 +40,7 @@ import SurveyAnalysing from './SurveyAnalysing'
 import SurveyResult from './SurveyResult' 
 import FooterBtnsNext from '@/components/btns/FooterBtnsNext'
 import ProgressLinear from '@/components/progress/ProgressLinear'
+import SurveyBottomSheet from "@/components/layout/SurveyBottomSheet"
 export default {
     data: () => ({
         step: 3,
@@ -55,7 +61,9 @@ export default {
             '내가 잘못 했거나, 실패했다고 생각이 든다 <br>/ 혹은 자신과 가족을 실망시켰다고 생각한다.',
             '신경이 예민해지고 스트레스를<br>받고 있다는 느낌이 든다.',
         ],
-        answerValue: []
+        answerValue: [],
+        sheet:false,
+        sheetFlag:0,
     }),
     components:{
        SurveyIntro,
@@ -72,7 +80,8 @@ export default {
        SurveyAnalysing,
        SurveyResult,
        FooterBtnsNext,
-       ProgressLinear
+       ProgressLinear,
+       SurveyBottomSheet
     },
     mounted() {
         this.step = 12;
@@ -122,8 +131,15 @@ export default {
         },
         result(){
             this.step = 12;
+        },
+        bottomSheetOpen(flag){
+            /* bottom sheet */
+            this.sheetFlag = flag;
+            this.sheet = true;
+        },
+        sheetClose(){
+            this.sheet= false;
         }
-
     }
 }
 </script>

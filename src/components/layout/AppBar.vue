@@ -14,8 +14,8 @@
 </template>
 
 <script>
-import Back from './icons/Back.vue';
-import Exclamation from './icons/Exclamation.vue';
+import Back from '../icons/Back.vue';
+import Exclamation from '../icons/Exclamation.vue';
 export default {
   components: {
     Back,
