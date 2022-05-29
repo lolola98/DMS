@@ -4,7 +4,6 @@
         scrollable
         persistent
         no-click-animation
-        content-class="bottom-sheet"
       >
       <v-card>
           <v-card-title class="justify-space-between">

@@ -1,5 +1,5 @@
 <template>
-    <v-sheet class="mx-auto fill-height w-100" max-width="700">
+    <v-sheet class="mx-auto fill-height full-width" max-width="700">
         <!-- 리스트 없을경우 -->
         <div v-if="items.length === 0" class="pos-center text-center pb-15">
             <Bell/>

@@ -172,7 +172,7 @@ export default {
   }
   .state {
     padding: 15px 0;
-    color: #101010;
+     color: #101010;
   }
 }
 .read-more{

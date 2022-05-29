@@ -1,6 +1,6 @@
 <template>
 <v-app>
-  <AppBar/>
+  <AppBar v-if="isAppBar"/>
   <v-main>
     <!-- Provides the application the proper gutter -->
     <v-container fluid fill-height>
@@ -13,13 +13,14 @@
 
 <script>
 import AppBar from '@/components/layout/AppBar.vue'
+
 export default {
   name: 'App',
   components: {
     AppBar,
   },
   data: () => ({
-    //
+    isAppBar: false,
   }),
 };
 </script>

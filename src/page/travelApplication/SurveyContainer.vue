@@ -1,5 +1,5 @@
 <template>
-    <div v-if="step !== 12" class="survey-container">
+    <div v-if="step !== 12" class="survey-container full-width fill-height">
         <ProgressLinear v-if="step !== 11" :progress="progress" />
         <SurveyIntro v-if="step === 0" @surveyStart="surveyStart" @surveyStop="surveyStop" />
         <SurveyType01 v-else-if="step === 1" :question="questionStr[current]" :answer="answer" @radioChanged="radioChanged"/>
@@ -147,8 +147,6 @@ export default {
 <style lang="scss" scoped>
 .survey-container{
     position: relative;
-    width: 100%;
-    height:100%;
     padding-bottom: 80px; /* 하단 버튼영역 밑으로 내려가는 스크롤 영역*/
 }
 </style>
