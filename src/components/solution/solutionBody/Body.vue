@@ -30,37 +30,37 @@
       </div>
       <div class="body-btns">
         <!-- 버튼 두줄로 만들어 주기 위해서 for문 두번..-->
+
         <div v-for="i in 2" :key="i" class="d-flex flex-column">
-          <template v-for="n in bodyData.length">
             <template v-if="i == 1">
               <v-btn
-                v-if="n < 9"
+                v-for="n in 8"
                 :key="n"
                 depressed
                 :class="{ active: bodyData[n - 1].value }"
-                @click="bodyData[n - 1].value = !bodyData[n - 1].value"
+                @click="selectBody(n-1)"
                 >{{ bodyData[n - 1].name }}</v-btn
               >
             </template>
             <template v-if="i == 2">
               <v-btn
-                v-if="n > 8"
-                :key="n"
+                v-for="n in (bodyData.length - 8)"
+                :key="n+8"
                 depressed
-                :class="{ active: bodyData[n - 1].value }"
-                @click="bodyData[n - 1].value = !bodyData[n - 1].value"
-                >{{ bodyData[n - 1].name }}</v-btn
+                :class="{ active: bodyData[n + 7].value }"
+                @click="selectBody(n+7)"
+                >{{ bodyData[n + 7].name }}</v-btn
               >
             </template>
-          </template>
         </div>
       </div>
     </div>
     <v-checkbox
-      v-model="checkbox"
+      v-model="notKnow"
       :label="label"
       :ripple="false"
-      class="checkbox"
+      class="checkbox-circle"
+      @change="checkboxChange"
     ></v-checkbox>
   </div>
 </template>
@@ -71,7 +71,7 @@ import BodyLine from "./BodyLine";
 
 export default {
   data: () => ({
-    checkbox: false,
+    notKnow: false,
     label:'모르겠어요.',
     bodyData: [
       { name: "심장/등", value: false },
@@ -105,11 +105,23 @@ export default {
   },
   methods: {
     valueSet(name) {
-      let index = this.bodyData.findIndex(function (item) {
+      let index = this.bodyData.findIndex((item) => {
         return item.name === name;
       });
       return this.bodyData[index].value;
     },
+    selectBody(index){
+      this.notKnow = false;
+      this.bodyData[index].value = !this.bodyData[index].value;
+    },
+    checkboxChange(){
+      /* 선택값 flase */
+       if(this.notKnow){
+        this.bodyData.forEach((value, index) => {
+          this.bodyData[index].value = false;
+        });
+      }
+    }
   },
 };
 </script>
