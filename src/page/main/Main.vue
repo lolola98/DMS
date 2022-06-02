@@ -1,5 +1,5 @@
 <template>
-    <div class="main full-width fill-height" :style="{'background-image' : `url(${background})`}">
+    <div class="main fill-width fill-height" :style="{'background-image' : `url(${background})`}">
         <div @click="notification" :class="[{new:noticNew},'icon-notic']"><NoticIcon /></div>
         <div class="px-6">
             <div class="greetings" v-html="greetings"></div>
@@ -12,7 +12,7 @@
 
 <script>
 import NoticIcon from '@/components/icons/NoticIcon'
-import MainBottomSheet from '@/components/layout/MainBottomSheet'
+import MainBottomSheet from '@/components/layout/bottomSheet/MainBottomSheet'
 import BottomMenu from '@/components/layout/BottomMenu'
 
 export default {

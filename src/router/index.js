@@ -22,9 +22,24 @@ const router = new Router({
             component: () => import('@/page/travelMap/TravelMap.vue'),
         },
         {
-            path: '/',
-            name: '솔루션',
+            path: '/body',
+            name: '몸 알아차리기',
             component: () => import('@/page/solution/SolutionContainer.vue'),
+        },
+        {
+            path: '/sleepDiary',
+            name: '수면일지',
+            component: () => import('@/page/solution/SleepDiary.vue'),
+        },
+        {
+            path: '/',
+            name: '꿈일기',
+            component: () => import('@/page/solution/DreamDiary.vue'),
+        },
+        {
+            path: '/breath',
+            name: '호흡형',
+            component: () => import('@/page/solution/SolutionBreath.vue'),
         },
         {
             path: '/survey',

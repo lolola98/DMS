@@ -1,7 +1,7 @@
-<template>
-  <div>
-      수면일기
-  </div>
+ <template>
+    <div>
+        꿈일기
+    </div>
 </template>
 
 <script>

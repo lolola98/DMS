@@ -20,7 +20,12 @@ export default {
     AppBar,
   },
   data: () => ({
-    isAppBar: false,
+    isAppBar: true,
   }),
+  methods:{
+    appBarHidden(flag){
+      this.isAppBar = flag;
+    }
+  }
 };
 </script>

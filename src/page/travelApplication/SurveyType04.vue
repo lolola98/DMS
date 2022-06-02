@@ -1,7 +1,7 @@
 <template>
   <!-- 질문13~26 -->
   <div>
-      <div class="question mt-10 mb-12">질문을 읽고 두 단어 사이에<br>나의 생각과 가장 일치하는 곳을<br>선택해주세요.</div>
+      <div class="question mt-9 mb-12">질문을 읽고 두 단어 사이에<br>나의 생각과 가장 일치하는 곳을<br>선택해주세요.</div>
       <div class="inner text-center">
             <div class="question fw-500">나의 미래는</div>
             <v-slider

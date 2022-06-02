@@ -1,7 +1,7 @@
 <template>
     <div class="footer-btns">
-        <v-btn block depressed class="btn-primary mb-1" height="48"  @click="$emit('submit')">{{ok}}</v-btn>
-        <v-btn block text height="48" depressed  @click="$emit('hide')">{{cancel}}</v-btn>
+        <v-btn v-if="ok !== undefined" block depressed class="btn-primary mb-1" height="48"  @click="$emit('submit')">{{ok}}</v-btn>
+        <v-btn v-if="cancel !== undefined"  block text height="48" depressed  @click="$emit('hide')">{{cancel}}</v-btn>
     </div>
 </template>
 <script>

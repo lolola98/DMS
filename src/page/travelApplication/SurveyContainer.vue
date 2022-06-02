@@ -1,5 +1,5 @@
 <template>
-    <div v-if="step !== 12" class="survey-container full-width fill-height">
+    <div v-if="step !== 12" class="survey-container fill-width fill-height">
         <ProgressLinear v-if="step !== 11" :progress="progress" />
         <SurveyIntro v-if="step === 0" @surveyStart="surveyStart" @surveyStop="surveyStop" />
         <SurveyType01 v-else-if="step === 1" :question="questionStr[current]" :answer="answer" @radioChanged="radioChanged"/>
@@ -40,7 +40,7 @@ import SurveyAnalysing from './SurveyAnalysing'
 import SurveyResult from './SurveyResult' 
 import FooterBtnsNext from '@/components/btns/FooterBtnsNext'
 import ProgressLinear from '@/components/progress/ProgressLinear'
-import SurveyBottomSheet from "@/components/layout/SurveyBottomSheet"
+import SurveyBottomSheet from "@/components/layout/bottomSheet/SurveyBottomSheet"
 export default {
     data: () => ({
         step: 3,

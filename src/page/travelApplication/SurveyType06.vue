@@ -8,7 +8,7 @@
       <div class="inner">
           <!-- 이미지 영역 -->
           <div class="image">
-            <img :src="getImage(imgURL)" class="full-width">
+            <img :src="getImage(imgURL)" class="fill-width">
           </div>
           <Textarea :value="value" :height="140" :counter="500" :placeholder="'최대한 자세히 작성해보세요.'" @input="inputChanged"/>
       </div>
