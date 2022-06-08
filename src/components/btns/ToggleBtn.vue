@@ -40,7 +40,7 @@ export default {
         margin: 5px 8px;
     }
     .active{
-       border-color: #7260FF !important;
+       border-color: $color-main !important;
        box-shadow: 0px 2px 6px #00000029;
     }
 }

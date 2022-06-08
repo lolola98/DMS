@@ -4,12 +4,10 @@
         scrollable
         persistent
         no-click-animation
+        :overlay-opacity="0.7"
       >
       <v-card>
-          <v-card-title class="justify-space-between">
-              {{title[flag]}}
-              <v-btn icon  @click="$emit('sheetClose')"> <Close /></v-btn>
-          </v-card-title>
+          <SheetHeader :title="title[flag]" @sheetClose="$emit('sheetClose')"/>
           <v-divider></v-divider>
           <v-card-text :style="`height: ${height};`" class="sheet-body">
               <!-- 가장 건강한 나무 -->
@@ -68,7 +66,7 @@
       </v-bottom-sheet>
 </template>
 <script>
-import Close from '@/components/icons/Close'
+import SheetHeader from "./SheetHeader";
 import EmotionIocn from "@/components/icons/EmotionIocn";
 export default {
     props:{
@@ -77,8 +75,8 @@ export default {
         height:String,
     },
     components:{
-        Close,
         EmotionIocn,
+        SheetHeader,
     },
     data: ()=> ({
         treeName: '인피니티 나무',

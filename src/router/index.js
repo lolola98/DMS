@@ -24,7 +24,7 @@ const router = new Router({
         {
             path: '/body',
             name: '몸 알아차리기',
-            component: () => import('@/page/solution/SolutionContainer.vue'),
+            component: () => import('@/page/solution/SolutionBody.vue'),
         },
         {
             path: '/sleepDiary',

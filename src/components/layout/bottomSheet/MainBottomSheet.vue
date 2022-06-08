@@ -8,7 +8,7 @@
   >
     <v-card class="main-sheet" :class="{'open': open, 'first':first}">
       <v-card-title class="sheet-header"><v-btn text plain :ripple="false" @click="open = !open"><UpIcon class="icon"/>Today’s Plan</v-btn></v-card-title>
-      <v-card-text style="" class="sheet-body"> 
+      <v-card-text  class="sheet-body"> 
         <v-btn text plain :ripple="false" class="pa-0 btn-map"> <MapIcon/></v-btn>
         <div class="sheet-content">
            <SolutionList/>

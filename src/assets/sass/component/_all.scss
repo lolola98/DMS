@@ -22,3 +22,14 @@
       }
     }
 }
+.btn-primary, .btn-primaryLight{
+  font-size: 16px !important;
+}
+.btn-primary{
+  color: #fff !important;
+  background-color: $color-main !important;
+}
+.btn-primaryLight{
+  color: $color-main !important;
+  background-color: $color-sub !important;
+}

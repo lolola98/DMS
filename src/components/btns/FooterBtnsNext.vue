@@ -1,7 +1,7 @@
 <template>
     <div class="footer-btns-next">
         <v-btn depressed class="btn-before" height="48"  @click="$emit('before')" :disabled="current === 0">이전</v-btn>
-        <v-btn depressed class="btn-primary" height="48"  @click="$emit('next')" :disabled="current === total || disabledNext">다음</v-btn>
+        <v-btn depressed class="btn-primaryLight" height="48"  @click="$emit('next')" :disabled="current === total || disabledNext">다음</v-btn>
     </div>
 </template>
 <script>
@@ -23,11 +23,8 @@ export default {
       background-color: $bg-lightgray;
       color: $color-main;
     }
-    .v-btn.btn-primary{
+    .v-btn.btn-primaryLight{
         width: calc(71% - 14px);
-        background-color: $color-sub;
-        color: $color-main;
-        font-size: 16px;
     }
 }
 </style>

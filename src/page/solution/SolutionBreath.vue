@@ -51,7 +51,7 @@
       </div>
       <FooterBtnsNext v-if="step !== 11" @before="before" @next="next" :current="step-1" :total="total"/> 
     </template> 
-    <template v-if="step === 5">
+    <template v-if="step === (total+1)">
         <SolutionFinish class="inner"/>
     </template>
   </div>
